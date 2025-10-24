@@ -2,10 +2,23 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    
-    <meta http-equiv="refresh" content=".25;url=http://192.168.43.208:3000/">
+    <title>Redirecting...</title>
+    <script>
+        // Fetch the URL from the JSON file
+        fetch('config.json')
+            .then(response => response.json())
+            .then(data => {
+                // Redirect to the URL from JSON after 250ms
+                setTimeout(() => {
+                    window.location.href = data.redirectUrl;
+                }, 250);
+            })
+            .catch(error => {
+                console.error('Error loading URL from JSON:', error);
+            });
+    </script>
 </head>
 <body>
-   
+    <p>Redirecting...</p>
 </body>
 </html>
